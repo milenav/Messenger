@@ -8,6 +8,10 @@ module.exports = app => {
     app.get('/users/logout', controllers.user.logout);
     app.get('/users/login', controllers.user.loginGet);
     app.post('/users/login', controllers.user.loginPost);
+
+    app.post('/threads/find', controllers.thread.findThread);
+    app.get('/thread/:username', controllers.thread.openThread);
+
     app.all('*', (req, res) => {
         res.status(404);
         res.send('404 Not Found');
